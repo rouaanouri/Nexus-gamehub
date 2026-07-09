@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./dist/style.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Dice Roll Game</title>
+
+</head>
+
+<body>
+  <header class="shadow-lg mb-7">
+    <nav class="navbar flex items-center justify-between p-4 mx-7">
+      <em class="text-2xl font-bold">Dice Roll Game <i class="fa-solid fa-dice"></i></em>
+      <div class="icons flex items-center gap-4">
+        <i class="fa-solid fa-circle-user text-2xl"></i>
+        <i class="fa-solid fa-share-nodes text-2xl"></i>
+      </div>
+
+    </nav>
+  </header>
+
+
+  <div class="grid  sm:grid-cols-1 lg:grid-cols-2 justify-items-center sm:m-auto mx-20 gap-y-10">
+
+    <div class="flex sm:flex-1 flex-row gap-10 items-center">
+      <div class="player-c text-center card">
+        <h3 class="font-bold text-xl text-[#8B5CF6]">Player Counter :</h3>
+        <p id="playerCounter" class="text-[40px] font-bold">0</p>
+      </div>
+
+      <div class="computer-c text-center card">
+        <h3 class="font-bold text-xl text-[#06B6D4]">Computer Counter :</h3>
+        <p id="computerCounter" class="text-[40px] font-bold">0</p>
+      </div>
+    </div>
+
+    <div class="result p-4 text-center  w-full card">
+      <h4 id="result" class="font-bold text-2xl">It's A Draw! 🔥</h4>
+    </div>
+
+    <div class="player  flex flex-col gap-6 items-center text-center card">
+      <h2 class="text-xl font-bold text-[#8B5CF6]">Player</h2>
+      <img id="playerDice" src="assets/images/dice1.svg" alt="Player Dice" width="150" height="150">
+      <h3 class="text-xl font-bold">Player Score : <span id="playerScore">0</span></h3>
+    </div>
+
+    <div class="computer flex flex-col gap-6 items-center text-center card">
+      <h2 class="text-xl font-bold text-[#06B6D4]">Computer</h2>
+      <img id="computerDice" src="assets/images/dice1.svg" alt="Computer Dice" width="150" height="150">
+      <h3 class="text-xl font-bold">Computer Score : <span id="computerScore">0</span></h3>
+    </div>
+
+  </div>
+
+  <button id="rollButton" onclick="rollDice()" class="text-xl font-bold">Roll the Dice <i
+      class="fa-solid fa-dice dice"></i></button>
+
+
+
+  <div id="winnerPopup" class="popup">
+    <div class="popup-content">
+      <h2 id="winnerText" class="text-xl font-bold"></h2>
+      <img src="assets/images/Happy Dance Sticker.gif" alt="">
+
+      <button class="again" onclick="location.reload()">
+        Play Again
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"> </script>
+</body>
+
+</html>

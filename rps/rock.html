@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rock Paper Scissors — NEXUS</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;800;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="rps.css">
+</head>
+<body>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="grid-bg"></div>
+
+<a href="../index.html" class="back-btn">← رجوع</a>
+
+<div class="wrapper">
+
+  <div class="game-title"> ROCK · PAPER · SCISSORS</div>
+
+  <div class="scoreboard">
+    <div class="score-item">
+      <div class="score-label">YOU</div>
+      <div class="score-num" id="scorePlayer">0</div>
+    </div>
+    <div class="score-item">
+      <div class="score-label">DRAW</div>
+      <div class="score-num" id="scoreDraw">0</div>
+    </div>
+    <div class="score-item">
+      <div class="score-label">PC</div>
+      <div class="score-num" id="scorePC">0</div>
+    </div>
+  </div>
+
+  <div class="arena">
+    <div class="arena-side">
+      <div class="arena-label">YOU</div>
+      <div class="arena-display" id="playerDisplay">❓</div>
+    </div>
+    <div class="vs-badge">VS</div>
+    <div class="arena-side">
+      <div class="arena-label">PC</div>
+      <div class="arena-display" id="pcDisplay">❓</div>
+    </div>
+  </div>
+
+  <div class="result-banner" id="resultBanner">اختر حجرة أو ورقة أو مقص!</div>
+
+  <div class="choices">
+    <button class="choice choice-rock"     data-choice="rock">
+      <img class="choice-img" src="image/rock.jpg" alt="rock">
+      <span class="choice-label"></span>
+    </button>
+    <button class="choice choice-paper"    data-choice="paper">
+      <img class="choice-img" src="image/paper.jpg" alt="paper">
+      <span class="choice-label"></span>
+    </button>
+    <button class="choice choice-scissors" data-choice="scissors">
+      <img class="choice-img" src="image/scissor.jpg" alt="scissors">
+      <span class="choice-label"></span>
+    </button>
+  </div>
+
+  <button class="reset-btn" onclick="resetGame()">↺ إعادة تشغيل</button>
+
+</div>
+<script src="rps.js"></script>
+</body>
+</html>

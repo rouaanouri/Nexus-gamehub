@@ -1,0 +1,283 @@
+ @import url('https://fonts.cdnfonts.com/css/honey-script');
+                
+:root {
+  --body-gradient: linear-gradient(135deg, #9e4bb3, #630d79, #833d91);
+  --box-gradient: linear-gradient(135deg, #4d0a55 0%, #1e1b4b 100%);
+  --input-message-bg: rgba(15, 23, 42, 0.5);
+  --reset-btn-bg: rgba(255,255,255,0.2);
+  --rules-bg: #4e185db8;
+  --primary: rgb(178, 3, 163);
+  --primary-dark: rgba(134, 3, 143, 0.968);
+  --border-color: #88378f;
+  --attempts-bg: #88378f;
+  --number-random:  rgba(221, 221, 235, 0.745);
+  --text-light: #ffffff;
+  --mute-light:#cbd5e1;
+  --text-muted: #656768;
+  --msg-high: #ef4444;
+  --msg-low: #f0c456;
+  --msg-win: #10b981;
+  --main-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --radius: 12px;
+  --big-radius: 20px;
+  --padding: 12px;
+  --transition: 0.3s ease;
+  --shadow-strong: 0 20px 40px rgba(28, 28, 30, 0.4);
+  --focus-shadow: 0 0 20px rgba(178, 3, 155, 0.664);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body { 
+  background: var(--body-gradient);
+  font-family: var(--main-font);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;   
+  overflow: hidden;
+}
+.game-title {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 45px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 100%;
+  font-family: 'kidsFint', sans-serif; 
+  animation: glow 2s infinite alternate;
+                                            
+}
+
+
+.boxGame {
+  width: 90%;
+  max-width: 550px;
+  padding: 30px;
+  border-radius: var(--big-radius);
+  background: var(--box-gradient);
+  box-shadow: var(--shadow-strong);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  margin: 40px auto;
+  z-index: 1;
+}
+
+.rules-box {
+  background: var(--rules-bg);
+  border-right: 4px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 15px 20px;
+  text-align: right;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--mute-light);
+}
+
+.rules-box strong {
+  color: var(--text-light);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.rules-box ul {
+  padding-right: 20px;
+}
+
+.rules-box li {
+  margin-bottom: 4px;
+}
+
+#message {
+  font-size: 17px;
+  margin: 0 auto 20px auto;
+  font-weight: bold;
+  min-height: 55px;
+  width: 80%;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  background: var(--input-message-bg);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  padding: 10px;
+}
+
+.msg-start { color: var(--text-muted); }
+.msg-high { color: var(--msg-high); animation: shake 0.3s ease; }
+.msg-low  { color: var(--msg-low); animation: shake 0.3s ease; }
+.msg-win  { color: var(--msg-win);  border-color: var(--msg-win) ; }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+input[type="number"] {
+  padding: 14px;
+  width: 80%;
+  border-radius: var(--radius);
+  border: 2px solid var(--border-color);
+  font-size: 18px;
+  transition: var(--transition);
+  background: var(--input-message-bg);
+  text-align: center;
+  color: var(--text-light);
+  outline: none;
+  margin-bottom: 5px;
+}
+
+input::-webkit-outer-spin-button, 
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"]:focus {
+  border-color: var(--primary);
+  box-shadow: var(--focus-shadow);
+}
+
+button {
+  padding: 14px 25px;
+  font-size: 18px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  display: block;
+  margin: 15px auto;
+  transition: var(--transition);
+  font-weight: bold;
+  width: 80%;
+}
+
+#checkBtn {
+  background: var(--primary);
+  color: var(--text-light);
+  box-shadow: 0 4px 12px rgba(3, 120, 178, 0.3);
+}
+
+#checkBtn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+#resetBtn {
+  background: var(--reset-btn-bg);
+  color: var(--text-light);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#resetBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+#attempts {
+  font-size: 16px;
+  color: var(--mute-light);
+  width: 80%;
+  background: var(--attempts-bg);
+  border-radius: var(--radius);
+  margin: 20px auto 0 auto;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#attempts span {
+  color: var(--text-light);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  body{
+    overflow: hidden;
+  }
+  .boxGame {
+    padding: 20px 15px;
+  }
+
+  input[type="number"], button, #message, #attempts {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .rules-box {
+    font-size: 0.8rem;
+    padding: 12px;
+  }
+}
+
+.random-number {
+  position: absolute;
+  color:var(--number-random);
+  font-size: 20px;
+  animation: fadeOut 1.5s linear forwards;
+  pointer-events: none;
+
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(2); }
+}
+
+@keyframes glow {
+ from {
+    text-shadow:
+      0 0 10px #bd00ff, 
+      0 0 20px #bd00ff,
+      0 0 40px #410d61; 
+  }
+  to {
+    text-shadow:
+      0 0 15px #ff007a, 
+      0 0 30px #bd00ff, 
+      0 0 60px #75db81,
+      0 0 90px #6700ff;
+  }
+}
+@font-face {
+  font-family: "kidsFint";
+  src: url("font/Kidsn.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.back-btn {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 999;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6);
+  border-radius: 12px;
+  padding: 8px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.back-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}

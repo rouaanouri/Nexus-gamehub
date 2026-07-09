@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snake — NEXUS</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="snak.css">
+</head>
+<body>
+  <a href="../index.html" class="back-btn">← رجوع</a>
+
+<div class="bg-orb orb1"></div>
+<div class="bg-orb orb2"></div>
+<div class="grid-bg"></div>
+
+<div class="wrapper">
+  <div class="game-header">
+    <div class="game-logo">🐍 SNAKE</div>
+    <div class="header-hint">اضغط SPACE للإيقاف المؤقت</div>
+  </div>
+
+  <div class="hud">
+    <div class="hud-card">
+      <div class="hud-label">SCORE</div>
+      <div class="hud-val" id="scoreDisplay">0</div>
+    </div>
+    <div class="hud-card">
+      <div class="hud-label">BEST</div>
+      <div class="hud-val gold" id="bestDisplay">0</div>
+    </div>
+    <div class="hud-card">
+      <div class="hud-label">LEVEL</div>
+      <div class="hud-val purple" id="levelDisplay">1</div>
+    </div>
+    <div class="hud-card">
+      <div class="hud-label">SPEED</div>
+      <div class="hud-val" id="speedDisplay">1x</div>
+    </div>
+  </div>
+
+  <div class="level-bar-wrap">
+    <div class="level-bar-label" id="barLabel">Level 1 → 2</div>
+    <div class="level-bar-bg">
+      <div class="level-bar-fill" id="levelBar" style="width:0%"></div>
+    </div>
+    <div class="level-bar-label" id="barGoal">أكل 0/5</div>
+  </div>
+
+  <div class="canvas-wrap">
+    <canvas id="c" width="480" height="480"></canvas>
+
+    <div class="lvlup-toast" id="lvlToast">
+      <div class="lvlup-label">LEVEL UP</div>
+      <div class="lvlup-num" id="lvlToastNum">2</div>
+    </div>
+
+    <div class="overlay" id="startOverlay">
+      <div class="ov-icon">🐍</div>
+      <div class="ov-title">SNAKE</div>
+      <div class="ov-sub">تحرّك وكُل الطعام. كلما أكلت، كبر الثعبان وزادت السرعة مع كل مستوى!</div>
+      <button class="btn-start" onclick="startGame()">ابدأ اللعبة ←</button>
+    </div>
+
+    <div class="overlay hidden" id="pauseOverlay">
+      <div class="ov-icon">⏸️</div>
+      <div class="ov-title">PAUSED</div>
+      <div class="ov-sub">اضغط SPACE للمتابعة</div>
+      <button class="btn-start" onclick="togglePause()">متابعة ←</button>
+    </div>
+
+    <div class="overlay hidden" id="gameOverOverlay">
+      <div class="ov-icon">💔</div>
+      <div class="ov-title red">GAME OVER</div>
+      <div class="ov-score" id="finalScore">0</div>
+      <div class="ov-best" id="finalBest"></div>
+      <button class="btn-start" onclick="startGame()">العب مجدداً ←</button>
+    </div>
+  </div>
+
+  <div class="controls">
+    <span class="key">↑</span><span class="key">↓</span><span class="key">←</span><span class="key">→</span>
+    <span style="margin:0 4px">للتحرك</span>
+    <span class="key">SPACE</span>
+    <span>للإيقاف</span>
+  </div>
+
+  <div class="mobile-controls">
+    <div class="mc-row"><button class="mc-btn" onclick="setDir(0,-1)">↑</button></div>
+    <div class="mc-row">
+      <button class="mc-btn" onclick="setDir(-1,0)">←</button>
+      <button class="mc-btn" onclick="setDir(0,1)">↓</button>
+      <button class="mc-btn" onclick="setDir(1,0)">→</button>
+    </div>
+  </div>
+</div>
+<script src="snakapp.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+</head>
+<link rel="stylesheet" href="gusess.css">
+<body>
+  <a href="../index.html" class="back-btn">← رجوع</a>
+
+<h1 class="game-title">! Let's Guess </h1>
+
+  <div class="boxGame"> 
+    <div class="rules-box">
+        <ul>
+           <strong>قواعد اللعبة:</strong>
+          <li>يختار الكمبيوتر رقماً عشوائياً بين 1 و 100.</li>
+          <li>قم بإدخال تخمينك في الخانة أدناه واضغط "تخمين الرقم".</li>
+          <li>ستخبرك اللعبة إن كان تخمينك (Too high) أو (Too low).</li>
+          <li>تستمر اللعبة بحساب محاولاتك حتى تصل للرقم الصحيح وتفوز!</li>
+        </ul>
+      </div>
+    <p id="message"></p>
+    <input type="number"  id="guess" placeholder="أدخل رقماً بين 1 و 100" min="1" max="100">
+    <button id="checkBtn">تخمين الرقم</button>
+    <button id="resetBtn"  style="display: none;">اللعب مجدداً</button>
+
+    <p id="attempts">  عدد المحاولات </p>
+  </div>
+  <p class="footer"> By Rouaa Nouri - 2026</p>
+
+<script src="script.js"></script>
+</body>
+</html>

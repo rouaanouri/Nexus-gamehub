@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./dist/style.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>friend</title>
+</head>
+
+<body>
+  <header class="shadow-lg mb-7">
+    <nav class="navbar flex items-center justify-between p-4 mx-7">
+      <em class="text-2xl font-bold">Dice Roll Game <i class="fa-solid fa-dice"></i></em>
+      <div class="icons flex items-center gap-4">
+        <i class="fa-solid fa-circle-user text-2xl"></i>
+        <i class="fa-solid fa-share-nodes text-2xl"></i>
+      </div>
+
+    </nav>
+  </header>
+
+
+ <div class="grid  sm:grid-cols-1 lg:grid-cols-2 justify-items-center sm:m-auto mx-20 gap-y-10">
+
+    <div class="flex flex-row gap-10 items-center">
+      <div class="player-c text-center card">
+        <h3 class="font-bold text-xl text-[#8B5CF6]">Player1 Counter :</h3>
+        <p id="player1Counter" class="text-[40px] font-bold">0</p>
+      </div>
+
+      <div class="computer-c text-center card">
+        <h3 class="font-bold text-xl text-[#06B6D4]">Player2 Counter :</h3>
+        <p id="player2Counter" class="text-[40px] font-bold">0</p>
+      </div>
+    </div>
+
+    <div class="result p-4 text-center  w-full card">
+      <h4 id="result" class="font-bold text-2xl">It's A Draw! 🔥</h4>
+    </div>
+
+    <div class="player player1 flex flex-col gap-6 items-center text-center card">
+      <h2 class="text-xl font-bold text-[#8B5CF6]">Player1</h2>
+      <img id="player1Dice" src="assets/images/dice1.svg" alt="Player Dice" width="150" height="150">
+      <h3 class="text-xl font-bold">Player1 Score : <span id="player1Score">0</span></h3>
+      <button id="rollButton1" onclick="roll1Dice()" class="text-xl font-bold">Roll the Dice <i
+          class="fa-solid fa-dice dice"></i></button>
+
+    </div>
+
+    <div class="player player2 flex flex-col gap-6 items-center text-center card">
+      <h2 class="text-xl font-bold text-[#06B6D4]">Player2</h2>
+      <img id="player2Dice" src="assets/images/dice1.svg" alt="Computer Dice" width="150" height="150">
+      <h3 class="text-xl font-bold">Player2 Score : <span id="player2Score">0</span></h3>
+      <button id="rollButton2" onclick="roll2Dice()" class="text-xl font-bold">Roll the Dice <i
+          class="fa-solid fa-dice dice"></i></button>
+    </div>
+
+  </div>
+
+  <div id="winnerPopup" class="popup">
+    <div class="popup-content">
+      <h2 id="winnerText" class="text-xl font-bold"></h2>
+      <img src="assets/images/Happy Dance Sticker.gif" alt="">
+
+      <button class="again" onclick="location.reload()">
+        Play Again
+      </button>
+    </div>
+  </div>
+
+
+
+
+
+  <script src="friend.js">
+
+
+  </script>
+
+</body>
+
+</html>

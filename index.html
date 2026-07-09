@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXUS — Game Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-canvas">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+<div class="grid-bg"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<nav>
+  <div class="logo">NEXUS</div>
+  <div class="nav-right">
+    <div class="nav-pill"><i class="fa-solid fa-user" style="margin-left:6px;color:#8cb5c0;"></i> SINGLE-PLAYER</div>
+    <div class="nav-pill"><i class="fa-solid fa-users" style="margin-left:6px;color:#ff3cac;"></i> MULTI-PLAYER</div>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>
+    <span class="h1-line1">عالم الألعاب</span><br>
+    <span class="h1-line2">الكلاسيكية الخارقة</span>
+  </h1>
+  <p class="hero-sub">اكتشف 6 ألعاب أسطورية تم إعادتها للحياة بتصميم نيون عصري ومؤثرات بصرية مذهلة. اختر لعبتك المفضلة، واكسر الرقم القياسي الآن!</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-num"><img src="media/mental-health.png" class="custom-icon"></div><div class="hstat-lbl">Train Your Brain</div></div>
+    <div class="hstat"><div class="hstat-num"><img src="media/game.png" class="custom-icon"></div><div class="hstat-lbl">Crazy Game</div></div>
+    <div class="hstat"><div class="hstat-num"><img src="media/avatar.png" class="custom-icon"></div><div class="hstat-lbl">Adrenaline</div></div>
+  </div>
+</section>
+
+<div class="games-grid" id="gamesGrid">
+
+  <div class="gcard card-snake" data-id="snake" onclick="openModal('snake')">
+    <div class="card-preview-wrap">
+      <div class="card-preview prev-snake">
+        <div class="icon-rings"><div class="ring ring1"></div><div class="ring ring2"></div><div class="ring ring3"></div></div>
+        <div class="game-icon">🐍</div>
+        <div class="play-overlay"><div class="play-btn-big">▶ &nbsp;العب الآن</div></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-title-wrap">
+          <div class="card-num">01 / 06</div>
+          <div class="card-title">SNAKE</div>
+        </div>
+        <span class="dbadge d-hard">صعب</span>
+      </div>
+      <p class="card-desc">تحرّك الثعبان، كُل الطعام، ولا تصطدم بنفسك أو الجدران. كلما أكل كلما كبر وزادت السرعة!</p>
+      <div class="card-footer">
+        <div class="tags">
+          <span class="tag">الأسهم للتحرك</span>
+          <span class="tag">زيادة السرعة</span>
+          <span class="tag">أرقام قياسية</span>
+        </div>
+        <div class="card-arrow"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gcard card-memory" data-id="guess" onclick="openModal('guess')">
+    <div class="card-preview-wrap">
+      <div class="card-preview prev-memory">
+        <div class="icon-rings"><div class="ring ring1"></div><div class="ring ring2"></div><div class="ring ring3"></div></div>
+        <div class="game-icon">🔢</div>
+        <div class="play-overlay"><div class="play-btn-big">▶ &nbsp;العب الآن</div></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-title-wrap">
+          <div class="card-num">02 / 06</div>
+          <div class="card-title">  0</div>
+        </div>
+        <span class="dbadge d-easy">سهل</span>
+      </div>
+      <p class="card-desc">الكمبيوتر اختار رقماً سرياً بين 1 و 100 — خمّنه في أقل عدد من المحاولات واكسر رقمك القياسي!</p>
+      <div class="card-footer">
+        <div class="tags">
+          <span class="tag">تلميح أكبر/أصغر</span>
+          <span class="tag">عد المحاولات</span>
+          <span class="tag">رقم قياسي</span>
+        </div>
+        <div class="card-arrow"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gcard card-mole" data-id="rps" onclick="openModal('rps')">
+    <div class="card-preview-wrap">
+      <div class="card-preview prev-mole">
+        <div class="icon-rings"><div class="ring ring1"></div><div class="ring ring2"></div><div class="ring ring3"></div></div>
+        <div class="game-icon">✂️</div>
+        <div class="play-overlay"><div class="play-btn-big">▶ &nbsp;العب الآن</div></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-title-wrap">
+          <div class="card-num">03 / 06</div>
+          <div class="card-title">  ROCK · PAPER · SCISSORS</div>
+        </div>
+        <span class="dbadge d-easy">سهل</span>
+      </div>
+      <p class="card-desc">اختر حجرة أو ورقة أو مقص وتحدّ الكمبيوتر! أول من يصل لـ 5 انتصارات يفوز بالجولة.</p>
+      <div class="card-footer">
+        <div class="tags">
+          <span class="tag">3 خيارات</span>
+          <span class="tag">أفضل من 5</span>
+          <span class="tag">ضد الكمبيوتر</span>
+        </div>
+        <div class="card-arrow"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gcard card-pong" data-id="xo" onclick="openModal('xo')">
+    <div class="card-preview-wrap">
+      <div class="card-preview prev-pong">
+        <div class="icon-rings"><div class="ring ring1"></div><div class="ring ring2"></div><div class="ring ring3"></div></div>
+        <div class="game-icon">❌</div>
+        <div class="play-overlay"><div class="play-btn-big">▶ &nbsp;العب الآن</div></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-title-wrap">
+          <div class="card-num">04 / 06</div>
+          <div class="card-title">XO</div>
+        </div>
+        <span class="dbadge d-med">متوسط</span>
+      </div>
+      <p class="card-desc">العب Tic-Tac-Toe ضد ذكاء اصطناعي أو صديق! أكمل صف أو عمود أو قطر قبله وانتصر!</p>
+      <div class="card-footer">
+        <div class="tags">
+          <span class="tag">لاعبين أو AI</span>
+          <span class="tag">شبكة 3×3</span>
+          <span class="tag">تتبع الجولات</span>
+        </div>
+        <div class="card-arrow"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gcard card-quiz" data-id="higher" onclick="openModal('higher')">
+    <div class="card-preview-wrap">
+      <div class="card-preview prev-quiz">
+        <div class="icon-rings"><div class="ring ring1"></div><div class="ring ring2"></div><div class="ring ring3"></div></div>
+        <div class="game-icon">📈</div>
+        <div class="play-overlay"><div class="play-btn-big">▶ &nbsp;العب الآن</div></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-title-wrap">
+          <div class="card-num">05 / 06</div>
+          <div class="card-title"> LOWER OR HIGHER </div>
+        </div>
+        <span class="dbadge d-med">متوسط</span>
+      </div>
+      <p class="card-desc">شوف الرقم الظاهر وخمّن — هل الرقم الجاي أكبر أو أصغر؟ كل إجابة صح تضيف نقطة. كم تصمد؟</p>
+      <div class="card-footer">
+        <div class="tags">
+          <span class="tag">قرار سريع</span>
+          <span class="tag">تسلسل لا نهائي</span>
+          <span class="tag">أعلى نقطة</span>
+        </div>
+        <div class="card-arrow"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gcard card-puzzle" data-id="dice" onclick="openModal('dice')">
+    <div class="card-preview-wrap">
+      <div class="card-preview prev-puzzle">
+        <div class="icon-rings"><div class="ring ring1"></div><div class="ring ring2"></div><div class="ring ring3"></div></div>
+        <div class="game-icon">🎲</div>
+        <div class="play-overlay"><div class="play-btn-big">▶ &nbsp;العب الآن</div></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-title-wrap">
+          <div class="card-num">06 / 06</div>
+          <div class="card-title">DICE </div>
+        </div>
+        <span class="dbadge d-easy">سهل</span>
+      </div>
+      <p class="card-desc">ارمِ النرد وتحدّ الكمبيوتر! أعلى رقم يفوز بالجولة. أول من يجمع 10 نقاط يفوز باللعبة!</p>
+      <div class="card-footer">
+        <div class="tags">
+          <span class="tag">رمي النرد</span>
+          <span class="tag">أعلى رقم يفوز</span>
+          <span class="tag">سباق النقاط</span>
+        </div>
+        <div class="card-arrow"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  ✨ Created By <strong>Rouaa Nouri</strong>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <div class="modal-header" id="mHeader">
+      <div class="modal-icon-row">
+        <div class="modal-emoji" id="mEmoji"></div>
+        <div class="modal-meta">
+          <div class="modal-num" id="mNum"></div>
+          <div class="modal-title" id="mTitle"></div>
+        </div>
+        <div class="dbadge" id="mBadge" style="margin-right:auto"></div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-desc" id="mDesc"></p>
+      <div class="modal-btns">
+        <button class="btn-go" id="mGo">🚀 Start Play</button>
+        <button class="btn-back" onclick="closeModal()">رجوع</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="XO.css">
+    <title>Tic Tac Toc</title>
+</head>
+<body>
+    <a href="../index.html" class="back-btn">← رجوع</a>
+
+    <div class="game"> 
+        <div class="title"><span >XO</span> Game</div>
+        <div class="square" id="item1" onclick="game(this.id)"></div>
+        <div class="square" id="item2" onclick="game(this.id)"></div>
+        <div class="square" id="item3" onclick="game(this.id)"></div>
+        <div class="square" id="item4" onclick="game(this.id)"></div>
+        <div class="square" id="item5" onclick="game(this.id)"></div>
+        <div class="square" id="item6" onclick="game(this.id)"></div>
+        <div class="square" id="item7" onclick="game(this.id)"></div>
+        <div class="square" id="item8"onclick="game(this.id)"></div>
+        <div class="square" id="item9" onclick="game(this.id)"></div>
+    </div>
+    <div class="score-container">
+    
+    <div class="score-box">
+        <label for="x-score">Player X Wins</label>
+        <input type="text" id="x-score" value="0" readonly>
+    </div>
+
+    <div class="score-box">
+        <label for="o-score">Player O Wins</label>
+        <input type="text" id="o-score" value="0" readonly>
+    </div>
+    
+</div>
+    <button class="reset-btn" id="reset-game">Restart Game</button>
+    <div id="winner-popup" class="popup-overlay">
+    <div class="popup-content">
+        <img id="popup-img" src="assets/image/done1.gif" alt="Winner Animation">
+        
+        <h2 id="popup-text">The Winner Is: </h2>
+    </div>
+</div>
+    <script src="XO game.js"></script>
+</body>
+</html>

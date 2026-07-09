@@ -1,0 +1,405 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #05050f;
+  --bg2: #0c0c1e;
+  --bg3: #12122a;
+  --text: #f0f0ff;
+  --muted: #6b6b9a;
+  --border: rgba(255, 255, 255, 0.07);
+  --green: #3bf0a0;
+  --red: #ff3cac;
+  --gold: #ffbe0b;
+  --cyan: #00d2ff;
+}
+
+body {
+  /* background: var(--bg); */
+  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(86, 86, 86, 0.5)), url(image/neon.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: var(--text);
+  font-family: "Tajawal", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+.orb1 {
+  width: 500px;
+  height: 500px;
+  background: #7928ca;
+  top: -150px;
+  right: -150px;
+  animation: drift 10s ease-in-out infinite alternate;
+}
+.orb2 {
+  width: 350px;
+  height: 350px;
+  background: #ff3cac;
+  bottom: -100px;
+  left: -100px;
+  animation: drift 14s ease-in-out infinite alternate-reverse;
+}
+@keyframes drift {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(30px, 20px);
+  }
+}
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(120, 100, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 100, 255, 0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.back-btn {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 12px;
+  padding: 8px 18px;
+  font-family: "Tajawal", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+}
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 560px;
+  padding: 20px;
+}
+
+.game-title {
+  font-family: "Orbitron", sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ff3cac, #a855f7, #00d2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+}
+.score-item {
+  flex: 1;
+  padding: 16px 12px;
+  text-align: center;
+  border-left: 1px solid var(--border);
+}
+.score-item:last-child {
+  border-left: none;
+}
+.score-label {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  font-family: "Orbitron", sans-serif;
+  margin-bottom: 6px;
+}
+.score-num {
+  font-family: "Orbitron", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  transition: transform 0.2s;
+}
+.score-num.bump {
+  animation: bump 0.3s ease;
+}
+@keyframes bump {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.35);
+  }
+}
+#scorePlayer {
+  color: var(--green);
+}
+#scoreDraw {
+  color: var(--gold);
+}
+#scorePC {
+  color: var(--red);
+}
+
+.arena {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+.arena-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.arena-label {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  font-family: "Orbitron", sans-serif;
+}
+.arena-display {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  background: var(--bg2);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56px;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s,
+    transform 0.3s;
+}
+.arena-display.win {
+  border-color: var(--green);
+  box-shadow: 0 0 28px rgba(59, 240, 160, 0.35);
+}
+.arena-display.lose {
+  border-color: var(--red);
+  box-shadow: 0 0 28px rgba(255, 60, 172, 0.35);
+}
+.arena-display.draw {
+  border-color: var(--gold);
+  box-shadow: 0 0 28px rgba(255, 190, 11, 0.35);
+}
+.arena-display.shake {
+  animation: shake 0.4s ease;
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+
+.vs-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.result-banner {
+  width: 100%;
+  text-align: center;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 20px;
+  font-weight: 800;
+  border: 1px solid transparent;
+  min-height: 54px;
+  transition:
+    background 0.3s,
+    border-color 0.3s;
+}
+.result-banner.win {
+  background: rgba(59, 240, 160, 0.1);
+  border-color: rgba(59, 240, 160, 0.3);
+  color: var(--green);
+}
+.result-banner.lose {
+  background: rgba(255, 60, 172, 0.1);
+  border-color: rgba(255, 60, 172, 0.3);
+  color: var(--red);
+}
+.result-banner.draw {
+  background: rgba(255, 190, 11, 0.1);
+  border-color: rgba(255, 190, 11, 0.3);
+  color: var(--gold);
+}
+.result-banner.pop {
+  animation: pop 0.35s ease;
+}
+@keyframes pop {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+.choices {
+  display: flex;
+  gap: 16px;
+}
+.choice {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  background: var(--bg2);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.choice::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: var(--hover-color, rgba(255, 255, 255, 0.04));
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.choice:hover {
+  transform: translateY(-6px) scale(1.05);
+  border-color: var(--hover-border, rgba(255, 255, 255, 0.3));
+}
+.choice:hover {
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.5),
+    0 0 20px var(--glow-color, rgba(255, 255, 255, 0.1));
+}
+.choice:hover::before {
+  opacity: 1;
+}
+.choice:active {
+  transform: scale(0.94);
+}
+
+.choice-rock {
+  --hover-border: #ff00ff;
+  --glow-color: rgba(0, 210, 255, 0.3);
+}
+.choice-paper {
+  --hover-border: #0a75f9;
+  --glow-color: rgba(59, 240, 160, 0.3);
+}
+.choice-scissors {
+  --hover-border: #e2ff3c;
+  --glow-color: rgba(255, 60, 172, 0.3);
+}
+
+.choice-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+.choice-label {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.arena-display img {
+  width: 115px;
+  height: 115px;
+  border-radius: 10px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.3));
+}
+.arena-display.win img {
+  filter: drop-shadow(0 0 18px rgba(59, 240, 160, 0.7));
+}
+.arena-display.lose img {
+  filter: drop-shadow(0 0 18px rgba(255, 60, 172, 0.7));
+}
+.arena-display.draw img {
+  filter: drop-shadow(0 0 18px rgba(255, 190, 11, 0.7));
+}
+
+.reset-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 12px;
+  padding: 10px 28px;
+  font-family: "Tajawal", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.reset-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--text);
+}

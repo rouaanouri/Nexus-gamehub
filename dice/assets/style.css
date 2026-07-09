@@ -1,0 +1,227 @@
+
+:root{
+    --primary-color:#8B5CF6;
+    --secondary-color:#06B6D4;
+    --background-color:#1E1B4B;
+    --text-color:#FFFFFF;
+}
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+}
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+ inset: 0;
+  transform: translateX(-150%) skewX(-25deg);
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.3),
+    transparent
+  );
+}
+
+.card:hover::before {
+  animation: shine 0.9s ease forwards;
+
+}
+
+@keyframes shine {
+  from {
+    transform: translateX(-150%) skewX(-25deg);
+  }
+  to {
+    transform: translateX(150%) skewX(-25deg);
+  }
+}
+.computer-c , .player-c  , .player , .computer{
+    background-color: var(--background-color);
+   
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+}
+ .player , .computer{
+    width: 500px;
+    height:max-content;
+    padding: 20px;
+    box-shadow: 0 4px 8px var(--primary-color);
+
+ }
+.player-c , .player1{
+    box-shadow: 0 4px 8px var(--primary-color);
+}
+
+.computer-c , .computer , .player2{
+    box-shadow: 0 4px 8px var(--secondary-color);
+}
+.p{
+    color: var(--primary-color);
+}
+.c{
+    color: var(--secondary-color);
+}
+.result{
+   box-shadow: 0 0px 4px var(--secondary-color), 0 2px 13px var(--primary-color);
+    padding: 10px;
+    border-radius: 10px;
+    height: 129px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 550px;
+}
+
+#rollButton , #rollButton2 , #rollButton1 , .computer-btn , .friend-btn {
+    display: block;
+    margin: 30px auto;
+    padding: 20px 30px;
+    box-shadow: 0 0px 4px var(--secondary-color), 0 2px 13px var(--primary-color);
+    
+    border-radius: 10px;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.dice , #rollButton , #rollButton2 , #rollButton1 ,.again , .computer-btn , .friend-btn {
+  transition: transform 0.5s ease;
+}
+
+
+#rollButton:hover
+, #rollButton2:hover , #rollButton1:hover ,.again:hover  , 
+ .computer-btn:hover , .friend-btn:hover{
+    transform: scale(1.03);
+    .dice {
+  transform: rotate(360deg);
+}
+}
+#result{
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.friend{
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    width:400px;
+    height: 400px;
+}
+
+.computer-btn {
+    position: fixed;
+     right: 50px;
+    bottom: 124px;}
+.friend-btn {
+    position: fixed;
+     right: 400px;
+    bottom: 124px;}
+.steps{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.step{
+        box-shadow: 0 0px 4px var(--secondary-color), 0 2px 13px var(--primary-color);
+ padding: 20px 30px;
+ border-radius: 10px;
+
+ width: 47%;
+
+}
+@media (max-width:640px) {
+    .friend{
+    position: fixed;
+    left: -3px;
+    bottom: -49px;
+    width:300px;
+    height: 300px;
+    }
+    
+    .computer-btn {
+    position: fixed;
+    right: 8px;
+    bottom: 50px;
+    width: max-content;
+    padding: 10px;
+}
+.friend-btn {
+    right: 8px;
+    bottom: -9px;
+    width: max-content;
+    padding: 10px;}
+}
+#rollButton1:disabled ,
+#rollButton2:disabled{
+    background-color: #cccccc34;
+    color: #1E1B4B;
+    cursor: not-allowed;
+}
+
+
+
+
+.popup{
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,.9);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content{
+    background: var(--background-color);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+.again{
+     display: block;
+      padding: 20px 30px;
+    box-shadow: 0 0px 4px var(--secondary-color), 0 2px 13px var(--primary-color);
+    
+    border-radius: 10px;
+    margin: auto;
+}
+
+.back-btn {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 999;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6);
+  border-radius: 12px;
+  padding: 8px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.back-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
