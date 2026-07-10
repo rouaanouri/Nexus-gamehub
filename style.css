@@ -6,8 +6,6 @@
   padding: 0;
 }
 
-
-
 :root {
   --bg: #05050f;
   --bg2: #0c0c1e;
@@ -228,14 +226,7 @@ nav {
   display: inline-block;
 }
 
-.games-grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 40px 48px 80px;
-}
+
 
 .gcard {
   background: var(--bg2);
@@ -747,4 +738,32 @@ footer strong {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+.games-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr !important; 
+  gap: 20px;
+  padding: 20px 24px 80px;
+}
+
+@media (min-width: 768px) {
+  nav { padding: 14px 36px; }
+  .hero { padding: 80px 36px 48px; }
+  .hero h1 { font-size: 56px; }
+  .hero-sub { font-size: 16px; }
+  
+  .hero-stats { flex-direction: row; }
+  .hstat { border-bottom: none; border-left: 1px solid var(--border); }
+  .hstat:last-child { border-left: none; }
+  
+  .games-grid { grid-template-columns: repeat(2, 1fr) !important; padding: 30px 36px; }
+}
+
+@media (min-width: 1100px) {
+  nav { padding: 14px 48px; }
+  .hero h1 { font-size: 68px; }
+  
+  .games-grid { grid-template-columns: repeat(3, 1fr) !important; padding: 40px 48px 80px; }
 }
