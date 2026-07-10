@@ -20,8 +20,9 @@
 }
 
 body {
-  /* background: var(--bg); */
-  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(86, 86, 86, 0.5)), url(image/neon.jpg);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(86, 86, 86, 0.5)),
+    url(image/neon.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

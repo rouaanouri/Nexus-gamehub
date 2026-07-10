@@ -32,7 +32,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Background Visuals */
 .bg-canvas {
   position: fixed;
   inset: 0;
@@ -98,7 +97,6 @@ body {
   transition: left 0.1s, top 0.1s;
 }
 
-/* Navigation */
 nav {
   position: sticky;
   top: 0;
@@ -138,7 +136,6 @@ nav {
   color: var(--muted);
 }
 
-/* Hero Section */
 .hero {
   position: relative;
   z-index: 1;
@@ -209,7 +206,6 @@ nav {
   display: inline-block;
 }
 
-/* Games Grid */
 .games-grid {
   position: relative;
   z-index: 1;
@@ -219,7 +215,6 @@ nav {
   padding: 20px 24px 60px;
 }
 
-/* Dynamic Smart Cards (No repetition!) */
 .gcard {
   background: var(--bg2);
   border: 1px solid var(--border);
@@ -231,11 +226,9 @@ nav {
   backdrop-filter: blur(10px);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   
-  /* Smart injection using CSS Variables based on class rules */
   background-image: linear-gradient(135deg, var(--accent-glow) 0%, transparent 60%);
 }
 
-/* Intelligent assignments for each type instead of multiplying full selector blocks */
 .card-snake   { --accent-color: #3bf0a0; --accent-glow: rgba(59, 240, 160, 0.06); }
 .card-memory  { --accent-color: #a855f7; --accent-glow: rgba(168, 85, 247, 0.06); }
 .card-mole    { --accent-color: #ffbe0b; --accent-glow: rgba(255, 190, 11, 0.06); }
@@ -266,7 +259,6 @@ nav {
   transition: transform 0.35s ease;
 }
 
-/* Gradients mapping based on generic type */
 .prev-snake  { background: linear-gradient(135deg, #001a0d, #003322, #00150d); }
 .prev-memory { background: linear-gradient(135deg, #0d0025, #1a0050, #0a0030); }
 .prev-mole   { background: linear-gradient(135deg, #1a0a00, #3a1800, #150800); }
@@ -420,12 +412,11 @@ nav {
   transform: rotate(-45deg);
 }
 
-/* Modals */
 .overlay {
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
@@ -500,25 +491,22 @@ footer strong {
   background-clip: text;
 }
 
-/* ==========================================================================
-   MEDIA QUERIES (أسرار التجاوب الكامل لكل الشاشات)
-   ========================================================================== */
-
-/* 1. تابلت وشاشات متوسطة (أكبر من 600 بكسل) */
-@media (min-width: 600px) {
+@media (min-width: 768px) {
   nav { padding: 14px 36px; }
   .hero { padding: 80px 36px 48px; }
   .hero h1 { font-size: 56px; }
   .hero-sub { font-size: 16px; }
+  
   .hero-stats { flex-direction: row; }
   .hstat { border-bottom: none; border-left: 1px solid var(--border); }
   .hstat:last-child { border-left: none; }
+  
   .games-grid { grid-template-columns: repeat(2, 1fr); padding: 30px 36px; }
 }
 
-/* 2. شاشات لابتوب وكمبيوتر (أكبر من 1024 بكسل) */
-@media (min-width: 1024px) {
+@media (min-width: 1100px) {
   nav { padding: 14px 48px; }
   .hero h1 { font-size: 68px; }
+  
   .games-grid { grid-template-columns: repeat(3, 1fr); padding: 40px 48px 80px; }
 }
